@@ -1,0 +1,32 @@
+#body{
+    background-color: rgba(245, 241, 241, 0.932);
+}
+.fondo{
+    display: flex;
+    justify-content: space-around;
+}
+.color-fondo{
+    background-color: coral;
+}
+.color-fondo2{
+    background-color: rgb(123, 169, 170);
+}
+.fondo2{
+    border-radius: 10px;
+    background-color: rgb(238, 230, 230);
+}
+.ajuste{
+    width: 85px;
+    height: 60px;
+}
+.ajuste-1{
+    width: 50px;
+    height: 60px;
+}
+.bordesito{
+    border: 2px solid rgb(177, 174, 174);
+    border-radius: 10px;
+}
+.fuente{
+    font-family: Georgia, 'Times New Roman', Times, serif
+}

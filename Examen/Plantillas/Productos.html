@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block titulo %}
+Productos
+{% endblock %}
+
+{% block body%}
+<div class="card-container">
+    <div class="row justify-content-end">
+        <div class="col-lg-4">  
+            {% for p in Productos %}
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i.pinimg.com/736x/4c/7d/bc/4c7dbc41ce7c437b0f91cadfb89c3b6f.jpg" class="w-100">
+                    <h4 class="card-title">{{ p.nombre }}</h5>
+                    <p class="card-text">Precio: {{ p.precio }}$</p>
+                    <p class="card-text">Descripción: {{ p.descripcion }}</p>
+                </div>
+            {% endfor %}            
+        </div>
+        <div class="col-lg-4">  
+            <!-- Agrega aquí otro bucle para mostrar más objetos -->
+        </div>
+    </div>
+</div>
+>
+    
+        
+    
+{% endblock%}
+
