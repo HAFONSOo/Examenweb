@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% block titulo %}
+Carrito de compras
+{% endblock titulo %}
+
+{% block body %}
+
+<div class="container-xl">
+    <div class="row">
+        <div class="col-xl-12 mt-4">
+            <div class="d-flex custom-bg-r justify-content-evenly rounded-5" style="outline: solid black;">
+                <img src="https://cdn.icon-icons.com/icons2/742/PNG/512/shopping-cart-1_icon-icons.com_63427.png" alt="Bootstrap" width="40" height="40">
+                <h1>Carrito de compras</h1>
+                <img src="https://cdn.icon-icons.com/icons2/742/PNG/512/shopping-cart-1_icon-icons.com_63427.png" alt="Bootstrap" width="40" height="40">
+            </div>
+            <div class="alert alert-primary mt-2" role="alert">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="row" colspan="3" class="text-center">
+                        <img src="https://cdn.icon-icons.com/icons2/742/PNG/512/shopping-cart-1_icon-icons.com_63427.png" alt="Bootstrap" width="40" height="40">
+                        CARRITO
+                    </th>
+                    </tr>
+                    <tr>
+                      <th scope="col">NOMBRE</th>
+                      <th scope="col">PRECIO</th>
+                      <th scope="col">CANTIDAD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% if request.session.carrito.items %}
+                  {% for key, value in request.session.carrito.items %}
+                    <tr>
+                      <td>{{value.nombre}}</td>
+                      <td>${{value.acumulado}}</td>
+                      <td>{{value.cantidad}}
+                        <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
+                        <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  {% else %}
+                  <tr>
+                      <td colspan="3">
+                          <div class="alert alert-danger text-center"> Sin Productos </div>
+                      </td>
+                  </tr>
+                  {% endif %}
+                    <tr>
+                      <th scope="row">
+                        <img src="https://assets.materialup.com/uploads/bcf6dd06-7117-424f-9a6e-4bb795c8fb4d/preview.png" alt="Bootstrap" width="50" height="40">
+                        Total:</th>
+                      <td colspan="2">$ {{total_carrito}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr>
+                </div>
+                <div class="row text-center">
+                    <div class="col-4"><a href="#" class="btn btn-danger" onclick="limpiar()">Limpiar</a></div>
+                    <div class="col-4"><a href="{% url 'productos' %}" class="btn btn-warning">Seguir viendo</a></div>
+                    <div class="col-4"><a href="#" class="btn btn-success" onclick="comprar()">Comprar</a></div>
+                </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+{% endblock body %}

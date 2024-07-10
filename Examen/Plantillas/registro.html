@@ -1,0 +1,129 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block titulo %}
+Registrarse 
+{% endblock %}
+{% block body%}
+<form method="POST">
+    {% csrf_token %}
+    
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3  mt-5 rounded-5 border" style="backdrop-filter: blur(15px); ">
+                <div class="row">
+                    <p class="text-center text-danger mt-2">{{msg_error}}</p>
+                    <div class="col-xl-12 text-center">
+                        <div class="custom-bg rounded-5 d-flex justify-content-around p-2">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3456/3456426.png" alt="Bootstrap" width="50" height="50">
+                            <h1>Registro</h1>
+                            <img src="https://cdn-icons-png.flaticon.com/512/3456/3456426.png" alt="Bootstrap" width="50" height="50">
+                        </div>
+                    </div>
+                    <fieldset class="col-xl-12 text-center mt-4">
+                        <div class="custom-bg-r rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.username.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.username}}
+        
+                        <p class="text-center text-info">
+                            {{ formulario.username.help_text }}
+                        </p>
+        
+                        <p class="invalid-feedback">
+                            {{ formulario.username.error }}
+                        </p>
+                    </fieldset>
+        
+                    <fieldset class="col-xl-6 text-center mt-4">
+                        <div class="custom-bg-r rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.first_name.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.first_name}}
+                    </fieldset>
+                    <fieldset class="col-xl-6 text-center mt-4">
+                        <div class="custom-bg-r rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.last_name.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.last_name}}
+                    </fieldset>
+        
+                    <fieldset class="col-xl-12 text-center mt-4">
+                        <div class="custom-bg-r rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.email.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.email}}
+        
+                        <p class="invalid-feedback">
+                            {{ formulario.email.error }}
+                        </p>
+                    </fieldset>
+        
+                    <fieldset class="col-xl-6 text-center mt-4">
+                        <div class="custom-bg-r rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.password1.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.password1}}
+        
+                        <div class="text-center text-warning border rounded-3 mt-2">
+                            {{ formulario.password1.help_text }}
+                        </div>
+        
+                        <p class="invalid-feedback">
+                            {{ formulario.password1.error }}
+                        </p>
+                    </fieldset>
+                    <fieldset class="col-xl-6 text-center mt-4">
+                        <div class="custom-bg-r rounded-5 mb-2 shadow">
+                            <label for="{{formulario.username.id_for_label}}">
+                                {{formulario.password2.label}}
+                            </label>
+                        </div>
+                        
+                        {{formulario.password2}}
+        
+                        <p class="text-center text-info">
+                            {{ formulario.password2.help_text }}
+                        </p>
+        
+                        <p class="invalid-feedback">
+                            {{ formulario.password2.error }}
+                        </p>
+                    </fieldset>
+        
+                    <fieldset class="col-xl-12 mt-2">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success shadow" role="submit" type="submit">Registrarse</button>
+                        </div>
+                    </fieldset> 
+                    <fieldset class="col-xl-12 p-2 mt-2  text-center">
+                        <a class="link-primary" href="{% url 'iniciar' %}">Iniciar sesion...</a>
+                        
+                </fieldset> 
+        
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+    
+</body>
+
+{% endblock%}
+

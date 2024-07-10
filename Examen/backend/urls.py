@@ -1,8 +1,13 @@
 from django.contrib import admin
 from django.urls import path
-from .views import * 
+from .views import *
 urlpatterns = [
-    path('productos',mostrar_index,name="index"),
+    path('',pagina.mostrar_principal,name="index"),
+    path('productos/',pagina.mostrar_index,name="productos"),
+    path('registro/',usuario.ver_registro,name="Registro"),
+    path('iniciar/',usuario.ver_iniciar,name="iniciar"),
+    path('salir/', usuario.fun_cerrar, name='cerrar_sesion'),
+    path('carrito/', Carrito.ver_carrito, name='carrito'),
     ##CRUD
     path('productos/agregar/', producto.agregar_producto, name='agregar_producto'),
     path('productos/obtener/', producto.obtener_productos, name='obtener_productos'),
